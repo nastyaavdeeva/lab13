@@ -1,0 +1,30 @@
+#include <studio.h>
+int min_max(const int a[], int n, int *lo, int *hi){
+    if (n <= 0){
+        return 0;
+    }
+    int ct_min = a[0];
+    int ct_max = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] < ct_min){
+            ct_min = a[i];
+        } else if (a[i] > ct_max){
+            ct_max = a[i];
+        }
+    }
+    *lo = ct_min;
+    *hi = ct_max;
+    return 1;
+}
+int main(void){
+    int arr[] = {4, -2, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int lo = 99;
+    int hi = 99;
+    if (min_max(arr, n, &lo, &hi)){
+        printf("Suc: lo = %d, hi = %d\n", lo. hi);
+    } else {
+        printf("Fail: lo = %d, hi = %d\n", lo, hi);
+    }
+    return 0;
+}
